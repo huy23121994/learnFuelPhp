@@ -63,7 +63,7 @@
 					                <td><?php echo $tag->slug ?></td>
 					                <td class="text-center">
 					                	<a href="/admin/tags/edit/<?php echo $tag->id ?>" class="btn btn-success btn-xs"><i class="fa fa-eye"></i> View</a>
-					                	<a href="#" data-toggle="modal" data-id="<%= tag.id %>" data-target=".delete_comfirm" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Delete</a>
+					                	<a href="#" data-toggle="modal" data-id="<?php echo $tag->id ?>" data-target=".delete_comfirm" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Delete</a>
 					                </td>
 					            </tr>
                                 <?php endforeach ?>

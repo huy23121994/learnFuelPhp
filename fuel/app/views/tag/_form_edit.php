@@ -1,4 +1,7 @@
-<?php echo Form::open(array("class"=>"form-horizontal form-label-left", "action" => "/admin/tags/update/".$tag->id)); ?>
+<?php echo Form::open(array("class"=>"form-horizontal form-label-left", "action" => "/admin/tags/update/".$tag->id)); ?>  
+    <!-- Need Input field id for unique validation -->
+    <input type="hidden" name="id" class="form-control" value="<?php echo $tag->id?>" />
+
   	<div class="form-group">
     	<label class="control-label col-md-3 col-sm-3 col-xs-12">Tag name <span class="required">*</span>
     	</label>
@@ -17,7 +20,7 @@
       <label class="control-label col-md-3 col-sm-3 col-xs-12">Created Time</label>
       <div class="col-md-6 col-sm-6 col-xs-12">
         <fieldset disabled>
-          <input type="text" value="<?php echo $tag->created_at ?>" class="form-control"/>
+          <input type="text" value="<?php echo date("d-m-Y H:i:s", $tag->created_at) ?>" class="form-control"/>
         </fieldset>
       </div>
     </div>
@@ -42,7 +45,7 @@
       </div>
       <div class="modal-body text-center">
         <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
-        <a href="<%= tag_path(@tag.id) %>" type="button" class="btn btn-success" data-method="delete">Yes, I'm sure</a>
+        <a href="<?php echo "/admin/tags/destroy/".$tag->id ?>" type="button" class="btn btn-success">Yes, I'm sure</a>
       </div>
 
     </div>

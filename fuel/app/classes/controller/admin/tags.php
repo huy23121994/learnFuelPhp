@@ -31,13 +31,19 @@ class Controller_Admin_Tags extends Controller_Hybrid
 	public function action_update($id = null)
 	{	
 		is_null($id) and Response::redirect('users');
-		$tag = $data['tag'] = Model_Tag::find($id);
+		$tag = Model_Tag::find($id);
 		if ($tag) {
 			if (Input::method() == 'POST') {
 				$val = Model_Tag::validate('create');
 				if ($val->run()) {
+
 					$tag->tag_name = Input::post('tag_name');
-					$tag->tag_name = Input::post('slug');
+					if (Input::post('slug') == null) {
+						$tag->slug = Input::post('tag_name');
+					}else{
+						$tag->slug = Input::post('slug');
+					}
+					
 					if ($tag and $tag->save()) {
 						Session::set_flash('success', 'Tag successfully updated');
 					}else{
@@ -56,15 +62,21 @@ class Controller_Admin_Tags extends Controller_Hybrid
 		if (Input::method() == 'POST') {
 			$val = Model_Tag::validate('create');
 			if ($val->run()) {
-				$tag = Model_Tag::forge(array(
-					'tag_name' => Input::post('tag_name'),
-					'slug' => Input::post('slug'),
-				));
+
+				$tag = new Model_Tag;
+				$tag->tag_name = Input::post('tag_name');
+				if (Input::post('slug') == null) {
+					$tag->slug = Input::post('tag_name');
+				}else{
+					$tag->slug = Input::post('slug');
+				}
+
 				if ($tag and $tag->save()) {
 					Session::set_flash('success', 'Tag successfully created');
 				}else{
 					Session::set_flash('error', 'Could not create tag.');
 				}
+
 			}else{
 				Session::set_flash('error', $val->error_message());
 			}
@@ -72,9 +84,16 @@ class Controller_Admin_Tags extends Controller_Hybrid
 		Response::redirect('/admin/tags');
 	}
 
-	public function action_destroy()
+	public function action_destroy($id = null)
 	{
-
+		is_null($id) and Response::redirect('users');
+		if ($tag = Model_Tag::find($id)){
+			$tag->delete();
+			Session::set_flash('success', 'Tag successfully deleted');
+		}else{
+			Session::set_flash('error', 'Could not delete this tag');
+		}
+		Response::redirect('/admin/tags');
 	}
 
 }

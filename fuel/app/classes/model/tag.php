@@ -20,20 +20,28 @@ class Model_Tag extends Model
 			'events' => array('before_update'),
 			'mysql_timestamp' => false,
 		),
+		'Orm\Observer_Slug' => array(
+	        'events' => array('before_insert','before_update'),
+	        'source' => 'slug',
+	        'property' => 'slug',
+	        'separator' => '-',
+	        'unique' => true,
+	    ),
 	);
 
 	protected static $_table_name = 'tags';
 
 	public static function validate($factory)
 	{
-		$val = \Validation::forge($factory);
+		$val = Validation::forge($factory);
 		$val->add_callable('Myrules');
-		$val->add_field('tag_name', 'Tag', 'required|min_length[5]');
-		$val->add_field('slug', 'Slug', 'required')->add_rule('unique', 'tags.slug');
+		$val->add_field('tag_name', 'Tag', 'required');
+		$val->add('slug', 'Slug')->add_rule('unique', 'tags.slug');
 
-		$val->set_message('required','The field :label is required');
-		$val->set_message('unique','This :label was exist');
+		$val->set_message('required','The :label is required');
+		$val->set_message('unique','This :label already exists');
 		return $val;
 	}
+
 
 }

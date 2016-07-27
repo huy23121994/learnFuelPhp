@@ -2,15 +2,23 @@
 
 class Myrules
 {
-    public static function _validation_unique($val, $options)
+    public static function _validation_unique($value, $options, $id = 0)
     {
         list($table, $field) = explode('.', $options);
 
-        $result = DB::select(DB::expr("LOWER (\"$field\")"))
-        ->where($field, '=', Str::lower($val))
-        ->from($table)->execute();
+        $val = Validation::active();
+        $id = $val->input('id');
+		$check = DB::select('id', $field)->where($field, '=', $value)->from($table)->execute();
 
-        return ! ($result->count() > 0);
+        $result = $check->current();
+		if($check->count() > 0){
+			if($result['id'] === $id){
+				return TRUE;
+			}else{
+				return FALSE;
+			}
+		}else
+			return true;
     }
 }
 
