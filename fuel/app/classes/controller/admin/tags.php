@@ -8,10 +8,10 @@ class Controller_Admin_Tags extends Controller_Hybrid
 	{
 		$data['tags'] = Model_Tag::find('all');
 		$this->template->title = 'Admin | Tag';
-		$this->template->content = View::forge('tag/index', $data);
+		$this->template->content = View::forge('admin/tags/index', $data);
 		$this->template->add_css = View::forge('layouts/include_css/dataTable');
 		$this->template->add_js = View::forge('layouts/include_js/dataTable');
-		$this->template->custom_js = View::forge('tag/_js_index');
+		$this->template->custom_js = View::forge('admin/tags/_js_index');
 	}
 
 	public function action_edit($id = null)
@@ -21,10 +21,10 @@ class Controller_Admin_Tags extends Controller_Hybrid
 		$data['tag'] = Model_Tag::find($id);
 		$this->template->set_global('tag', $data['tag']);
 		$this->template->title = "Admin | Tag | ".$data['tag']->tag_name;
-		$this->template->content = View::forge('tag/edit', $data);
+		$this->template->content = View::forge('admin/tags/edit', $data);
 		$this->template->add_css = View::forge('layouts/include_css/pnotify');
 		$this->template->add_js = View::forge('layouts/include_js/pnotify');
-		$this->template->custom_js = View::forge('tag/_js_edit');
+		$this->template->custom_js = View::forge('admin/tags/_js_edit');
 
 	}
 
@@ -43,7 +43,7 @@ class Controller_Admin_Tags extends Controller_Hybrid
 					}else{
 						$tag->slug = Input::post('slug');
 					}
-					
+
 					if ($tag and $tag->save()) {
 						Session::set_flash('success', 'Tag successfully updated');
 					}else{

@@ -21,7 +21,7 @@
                     </div>
                     <div class="x_content">
                         <!-- content starts here -->
- 							<?php echo render('tag/_form_create') ?>
+ 							<?php echo render('admin/tags/_form_create') ?>
                         <!-- content ends here -->
                     </div>
                 </div>
