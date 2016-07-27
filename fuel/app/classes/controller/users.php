@@ -53,7 +53,7 @@ class Controller_Users extends Controller_Template
 			}
 			else
 			{
-				Session::set_flash('error', $val->error());
+				Session::set_flash('error', $val->show_errors());
 			}
 		}
 

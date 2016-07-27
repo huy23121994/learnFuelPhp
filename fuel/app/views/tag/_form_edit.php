@@ -1,10 +1,9 @@
-<form class="form-horizontal form-label-left">
-
+<?php echo Form::open(array("class"=>"form-horizontal form-label-left", "action" => "/admin/tags/update/".$tag->id)); ?>
   	<div class="form-group">
     	<label class="control-label col-md-3 col-sm-3 col-xs-12">Tag name <span class="required">*</span>
     	</label>
       <div class="col-md-6 col-sm-6 col-xs-12">
-        <input type="text" name="tag_name" class="form-control" value="<?php echo $tag->tag_name?>" required="required" />
+        <input type="text" name="tag_name" class="form-control" value="<?php echo $tag->tag_name?>" />
       </div>
   	</div>
     <div class="form-group">
@@ -30,7 +29,7 @@
       </div>
   	</div>
 
-</form>
+<?php echo Form::close(); ?>
 
 <div class="modal fade delete_comfirm" tabindex="-1" role="dialog" aria-hidden="true">
   <div class="modal-dialog modal-sm">

@@ -11,7 +11,7 @@
     <?php endif; ?>
 
   	<div class="form-group">
-    	<label class="control-label" for="first-name">Name <span class="required">*</span></label>
+    	<label class="control-label" for="first-name">Tag Name <span class="required">*</span></label>
       	<input type="text" name="tag_name" class="form-control"/>
     	<p class="hep-block">The name is how it appears on your site.</p>
   	</div>

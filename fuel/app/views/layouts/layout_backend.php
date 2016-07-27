@@ -7,7 +7,9 @@
 
 	<?php echo Asset::css('bootstrap.min.css'); ?>
 	<?php echo Asset::css('font-awesome.min.css'); ?>
+
 	<?php if(isset($add_css)) echo $add_css ?>
+
 	<?php echo Asset::css('back_end.css'); ?>
 </head>
 <body class="nav-md">

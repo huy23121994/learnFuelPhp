@@ -13,7 +13,7 @@
             <div class="col-sm-4">
                 <div class="x_panel">
                     <div class="x_title">
-                        <h2>Add new <small>tag </small></h2>
+                        <h2>Add new</h2>
                         <ul class="nav navbar-right panel_toolbox">
                             <li class="pull-right"><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>
                         </ul>

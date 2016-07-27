@@ -208,7 +208,7 @@ return array(
 		/**
 		 * Whether to fallback to global when a value is not found in the input array.
 		 */
-		// 'global_input_fallback' => true,
+		'global_input_fallback' => true,
 	),
 
 	/**
