@@ -2,24 +2,24 @@
 
 namespace Fuel\Migrations;
 
-class Create_tags
+class Create_categories
 {
 	public function up()
 	{
-		\DBUtil::create_table('tags', array(
+		\DBUtil::create_table('categories', array(
 			'id' => array('constraint' => 11, 'type' => 'int', 'auto_increment' => true, 'unsigned' => true),
-			'tag_name' => array('constraint' => 255, 'type' => 'varchar'),
+			'category_name' => array('constraint' => 255, 'type' => 'varchar'),
 			'slug' => array('constraint' => 255, 'type' => 'varchar'),
 			'created_at' => array('constraint' => 11, 'type' => 'int', 'null' => true),
 			'updated_at' => array('constraint' => 11, 'type' => 'int', 'null' => true),
 
 		), array('id'));
 
-		\DB::query("ALTER TABLE `tags` ADD UNIQUE (`slug`)")->execute();
+		\DB::query("ALTER TABLE `categories` ADD UNIQUE (`slug`)")->execute();
 	}
 
 	public function down()
 	{
-		\DBUtil::drop_table('tags');
+		\DBUtil::drop_table('categories');
 	}
 }
