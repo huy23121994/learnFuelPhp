@@ -36,6 +36,11 @@ class Controller_Welcome extends Controller
 		);
 	}
 
+	public function action_test()
+	{
+		return 'huy';
+	}
+
 	/**
 	 * A typical "Hello, Bob!" type example.  This uses a Presenter to
 	 * show how to use them.

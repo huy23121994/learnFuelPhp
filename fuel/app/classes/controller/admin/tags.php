@@ -9,8 +9,6 @@ class Controller_Admin_Tags extends Controller_Hybrid
 		$data['tags'] = Model_Tag::find('all');
 		$this->template->title = 'Admin | Tag';
 		$this->template->content = View::forge('admin/tags/index', $data);
-		$this->template->add_css = View::forge('layouts/include_css/dataTable');
-		$this->template->add_js = View::forge('layouts/include_js/dataTable');
 		$this->template->custom_js = View::forge('admin/tags/_js_index');
 	}
 
@@ -22,8 +20,6 @@ class Controller_Admin_Tags extends Controller_Hybrid
 		$this->template->set_global('tag', $data['tag']);
 		$this->template->title = "Admin | Tag | ".$data['tag']->tag_name;
 		$this->template->content = View::forge('admin/tags/edit', $data);
-		$this->template->add_css = View::forge('layouts/include_css/pnotify');
-		$this->template->add_js = View::forge('layouts/include_js/pnotify');
 		$this->template->custom_js = View::forge('admin/tags/_js_edit');
 
 	}

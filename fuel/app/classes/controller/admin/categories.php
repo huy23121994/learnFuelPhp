@@ -10,8 +10,6 @@ class Controller_Admin_Categories extends Controller_Template
 		$data['categories'] = Model_Category::find('all');
 		$this->template->title = 'Admin | Category';
 		$this->template->content = View::forge('admin/categories/index', $data);
-		$this->template->add_css = View::forge('layouts/include_css/dataTable');
-		$this->template->add_js = View::forge('layouts/include_js/dataTable');
 		$this->template->custom_js = View::forge('admin/categories/_js_index');
 	}
 
@@ -23,8 +21,6 @@ class Controller_Admin_Categories extends Controller_Template
 		$this->template->set_global('category', $data['category']);
 		$this->template->title = "Admin | Category | ".$data['category']->category_name;
 		$this->template->content = View::forge('admin/categories/edit');
-		$this->template->add_css = View::forge('layouts/include_css/pnotify');
-		$this->template->add_js = View::forge('layouts/include_js/pnotify');
 		$this->template->custom_js = View::forge('admin/categories/_js_edit');
 
 	}

@@ -1,1 +1,0 @@
-<?php echo Asset::css('dataTables.bootstrap.min.css'); ?>
