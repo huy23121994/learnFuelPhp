@@ -4,6 +4,12 @@ class Controller_Admin_Tags extends Controller_Hybrid
 {
 	public $template = 'layouts/layout_backend';
 
+	public function before()
+	{
+		parent::before();
+		\Helper\MyHelper::check_auth();
+	}
+
 	public function action_index()
 	{
 		$data['tags'] = Model_Tag::find('all');

@@ -1,9 +1,15 @@
 <?php
 
-class Controller_Admin_Categories extends Controller_Template
+class Controller_Admin_Categories extends Controller_Hybrid
 {
 
 	public $template = 'layouts/layout_backend';
+
+	public function before()
+	{
+		parent::before();
+		\Helper\MyHelper::check_auth();
+	}
 
 	public function action_index()
 	{
