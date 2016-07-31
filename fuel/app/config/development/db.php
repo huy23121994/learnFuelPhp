@@ -8,7 +8,8 @@ return array(
 		'connection'  => array(
 			'dsn'        => 'mysql:host=localhost;dbname=learnfuel',
 			'username'   => 'root',
-			'password'   => '123456',
+			'password'   => '',
 		),
+		'profiling'  => true,
 	),
 );

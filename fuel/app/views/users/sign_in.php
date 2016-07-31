@@ -19,7 +19,7 @@
     </div>
     <div class="checkbox text-left">
 	  	<label style="padding-left: 0">
-	        <input type="checkbox" name="remember_me" class="flat">
+	        <input type="checkbox" name="remember" class="flat">
 	        Remember me on this computer
 	  	</label>
 	</div>
