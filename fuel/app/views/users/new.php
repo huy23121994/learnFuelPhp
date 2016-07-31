@@ -20,9 +20,9 @@
     <div class="form-group">
       <input type="password" name="password" class="form-control" placeholder="Password">
     </div>
-    <div class="form-group">
+    <!-- <div class="form-group">
       <input type="password" name="password_confirmation" class="form-control" placeholder="Password confirmation">
-    </div>
+    </div> -->
     <div>
       <button class="btn btn-success submit">Sign up</button>
     </div>

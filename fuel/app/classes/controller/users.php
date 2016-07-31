@@ -27,7 +27,11 @@ class Controller_Users extends Controller_Template
 						$val->validated('username'),
 	                    $val->validated('password'),
 	                    $val->validated('email'),
-					    1
+					    1,
+					    array(
+					    	'fullname' => 'test',
+					    	'address' => ''
+					    )
 					);
 					if ($created){
 	                   	Response::redirect('/admin/tags');
@@ -48,6 +52,7 @@ class Controller_Users extends Controller_Template
 	                else{
 	                    Session::set_flash('error', $e->getMessage());
 	                }
+					Response::redirect_back();
 	            }
 			}
 			Session::set_flash('error', $val->error_message());
