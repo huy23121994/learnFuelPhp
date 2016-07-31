@@ -8,10 +8,10 @@ class Model_User extends Model
 		'username',
 		'password',
 		'email',
-		'profile_fields' => array(
-			'data_type' => 'array',
-		),
 		'group',
+        'last_login',
+        'login_hash',
+        'profile_fields',
 		'created_at',
 		'updated_at',
 	);

@@ -1,5 +1,4 @@
 <div class="right_col" role="main">
- 
     <div class="">
         <div class="page-title">
             <div class="title_left">
@@ -7,7 +6,6 @@
             </div>
         </div>
         <div class="clearfix"></div>
- 
         <div class="row">
             <div class="col-sm-12">
                 <div class="x_panel">
@@ -21,45 +19,42 @@
                     <div class="x_content">
                         <!-- content starts here -->
                         <table class="table table-striped" id="list-item" cellspacing="0" width="100%">
-					        <thead>
-					            <tr>
-					                <th>Username</th>
-					                <th>Full name</th>
-					                <th>Email</th>
-					                <th>Address</th>
-					                <th>Role</th>
-					                <th width="140px">Created Time</th>
-					            </tr>
-					        </thead>
-					        <tfoot>
-					            <tr>
-					                <th>Username</th>
-					                <th>Full name</th>
-					                <th>Email</th>
-					                <th>Address</th>
-					                <th>Role</th>
-					                <th>Created Time</th>
-					            </tr>
-					        </tfoot>
-					        <tbody style="text-transform: capitalize;">
-					        <?php foreach($users as $user) :?>
-					            <tr>
-					                <td><a href="<%= user_path(user) %>" class="text-success">
-					                	<u><?php echo $user->username ?></u>
-					                </a></td>
-					                <td>
-					                <?php
-					                	echo $user->profile_fields
-					                ?>
-					                </td>
-					                <td><?php echo $user->email ?></td>
-					                <td><?php echo $user->profile_fields ?></td>
-					                <td><?php echo $user->group ?></td>
-					                <td><?php echo $user->created_at ?></td>
-					            </tr>
-					        <?php endforeach ?>
-					        </tbody>
-					    </table>
+                            <thead>
+                                <tr>
+                                    <th>Username</th>
+                                    <th>Full name</th>
+                                    <th>Email</th>
+                                    <th>Address</th>
+                                    <th>Role</th>
+                                    <th width="140px">Created Time</th>
+                                </tr>
+                            </thead>
+                            <tfoot>
+                                <tr>
+                                    <th>Username</th>
+                                    <th>Full name</th>
+                                    <th>Email</th>
+                                    <th>Address</th>
+                                    <th>Role</th>
+                                    <th>Created Time</th>
+                                </tr>
+                            </tfoot>
+                            <tbody style="text-transform: capitalize;">
+                                <?php foreach($users as $user) :?>
+                                <?php $profile_fields = @unserialize($user->profile_fields) ?>
+                                <tr>
+                                    <td><a href="/admin/users/show/<?php echo $user->id ?>" class="text-success">
+                                            <u><?php echo $user->username ?></u>
+                                        </a></td>
+                                    <td><?php echo $profile_fields['fullname'] ?></td>
+                                    <td><?php echo $user->email ?></td>
+                                    <td><?php echo $profile_fields['address'] ?></td>
+                                    <td><?php echo $user->group ? 'Adminstrator' : 'User' ?></td>
+                                    <td><?php echo $user->created_at ?></td>
+                                </tr>
+                                <?php endforeach?>
+                            </tbody>
+                        </table>
                         <!-- content ends here -->
                     </div>
                 </div>

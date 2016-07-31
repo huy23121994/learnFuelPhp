@@ -20,7 +20,7 @@ class Controller_Admin_Tags extends Controller_Hybrid
 
 	public function action_edit($id = null)
 	{
-		is_null($id) and Response::redirect('users');
+		is_null($id) and Response::redirect('admin/tags');
 
 		$data['tag'] = Model_Tag::find($id);
 		$this->template->set_global('tag', $data['tag']);
@@ -32,7 +32,7 @@ class Controller_Admin_Tags extends Controller_Hybrid
 
 	public function action_update($id = null)
 	{	
-		is_null($id) and Response::redirect('users');
+		is_null($id) and Response::redirect('admin/tags');
 		$tag = Model_Tag::find($id);
 		if ($tag) {
 			if (Input::method() == 'POST') {
@@ -88,7 +88,7 @@ class Controller_Admin_Tags extends Controller_Hybrid
 
 	public function action_destroy($id = null)
 	{
-		is_null($id) and Response::redirect('users');
+		is_null($id) and Response::redirect('admin/tags');
 		if ($tag = Model_Tag::find($id)){
 			$tag->delete();
 			Session::set_flash('success', 'Tag successfully deleted');

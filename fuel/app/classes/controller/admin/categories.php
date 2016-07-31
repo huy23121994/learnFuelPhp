@@ -21,7 +21,7 @@ class Controller_Admin_Categories extends Controller_Hybrid
 
 	public function action_edit($id = null)
 	{
-		is_null($id) and Response::redirect('users');
+		is_null($id) and Response::redirect('admin/categories');
 
 		$data['category'] = Model_Category::find($id);
 		$this->template->set_global('category', $data['category']);
@@ -33,7 +33,7 @@ class Controller_Admin_Categories extends Controller_Hybrid
 
 	public function action_update($id = null)
 	{	
-		is_null($id) and Response::redirect('users');
+		is_null($id) and Response::redirect('admin/categories');
 		$category = Model_Category::find($id);
 		if ($category) {
 			if (Input::method() == 'POST') {
@@ -89,7 +89,7 @@ class Controller_Admin_Categories extends Controller_Hybrid
 
 	public function action_destroy($id = null)
 	{
-		is_null($id) and Response::redirect('users');
+		is_null($id) and Response::redirect('admin/categories');
 		if ($tag = Model_Category::find($id)){
 			$tag->delete();
 			Session::set_flash('success', 'Tag successfully deleted');
